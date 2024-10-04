@@ -3,6 +3,7 @@
 # Demo
 
 https://github.com/user-attachments/assets/64d80780-a75d-4072-9119-bbc51d08bcbd
+
 ---
 # Introduction
 - Users can register an account, log in, add products to the shopping cart, submit orders, and view their order history.
