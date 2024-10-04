@@ -1,0 +1,851 @@
+$themeColor: rgb(231, 243, 243);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+}
+
+// .top {
+//   background-color: $themeColor;
+//   text-align: center;
+//   color: rgb(96, 96, 96);
+//   padding: 5px;
+// }
+
+.banner {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  box-shadow: 0 10px 6px -6px #d7d7d7;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .logo img {
+    aspect-ratio: 1 / 1; /*寬高比*/
+    width: 130px; /* 也可以換成任何你想要的寬度 */
+    object-fit: cover;
+    object-position: center;
+    // border-radius: ;
+    // margin-right: 50px;
+  }
+  nav {
+    display: flex;
+    // align-items: center;
+    ul {
+      display: flex;
+      // padding: 20px;
+      li {
+        padding: 5px;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child)::after {
+          content: "|";
+          position: absolute;
+          right: -10px;
+          color: gray;
+        }
+
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+        a {
+          color: gray;
+          padding: 10px 20px;
+          text-decoration: none;
+          text-align: center;
+          transition: 0.3s;
+          font-weight: bold;
+          letter-spacing: 1px;
+          font-size: 1.2em;
+
+          &:hover {
+            background-color: $themeColor;
+            color: #ffffff;
+            border-radius: 20px; // 圓弧邊效果
+          }
+        }
+      }
+    }
+    .icons {
+      display: flex;
+      padding: 20px;
+    }
+
+    .icon {
+      padding: 0px 15px;
+      img {
+        aspect-ratio: 1 / 1;
+        width: 35px; /* 也可以換成任何你想要的寬度 */
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}
+
+//product
+$product-card-bg: #fff;
+$product-card-border: #ddd;
+$product-card-hover-bg: #f4f4f4;
+$product-card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+.product-card {
+  background-color: $product-card-bg;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    background-color: $product-card-hover-bg;
+    box-shadow: $product-card-shadow;
+    cursor: pointer;
+  }
+  .productImg {
+    img {
+      aspect-ratio: 1/1;
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+    }
+  }
+  .product-name {
+    font-size: 1.2rem;
+    color: gray;
+    margin: 10px 0;
+  }
+  .product-price {
+    font-size: 1.2rem;
+    color: gray;
+  }
+}
+
+//product-detail
+.product-detail {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #5f5f5f;
+  }
+  .product-image {
+    width: 100%;
+    height: auto;
+    margin: 20px 0px;
+  }
+  h2 {
+    margin: 5px 0;
+    color: #545454;
+  }
+  .product-colors {
+    margin: 20px 0;
+    h3 {
+      margin-bottom: 10px;
+      color: #5f5f5f;
+    }
+    .color-button {
+      width: 50px;
+      height: 30px;
+      margin: 0 10px;
+      cursor: pointer;
+      border: solid rgb(227, 227, 227) 2px;
+      background-color: #ffffff;
+
+      &.selected {
+        border: solid #5f5f5f 2px;
+      }
+    }
+  }
+  .quantity-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+
+    span {
+      padding: 0px 50px;
+      border: solid #f4f3f3;
+      height: 30px;
+      width: 50px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+    button {
+      width: 30px;
+      height: 30px;
+      font-size: 1.2rem;
+      border: none;
+      background-color: #ddd;
+      cursor: pointer;
+      transition: background-color 0.5s;
+
+      &:hover {
+        background-color: #9b9a9a;
+      }
+    }
+  }
+
+  .add-to-cart {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #304161;
+    color: white;
+    border-radius: 10px;
+    &:hover {
+      background-color: #49618d;
+    }
+  }
+}
+
+.product-images {
+  position: relative;
+  img {
+    aspect-ratio: 1/1;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+  }
+}
+
+.prev-button,
+.next-button {
+  background-color: #dddddd91;
+  color: white;
+  border: none;
+  padding: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  &:hover {
+    background-color: #9b9a9a;
+  }
+}
+.next-button {
+  right: 0;
+}
+
+//login
+.login-container,
+.register-container {
+  max-width: 350px;
+  height: auto;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .form-group {
+    margin-bottom: 15px;
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+      font-size: 16px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  }
+  button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #304161;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #49618d;
+    }
+  }
+}
+
+//購物車上面的step列
+.checkout-step {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-bottom: 2px solid #ddd;
+  .step {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+    margin: 0 5px;
+    font-weight: bold;
+    color: #555;
+
+    &.active {
+      background-color: #304161;
+      color: white;
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+//購物車
+.cart-container {
+  padding: 30px;
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    thead {
+      border-top: 1px solid #ddd;
+      tr {
+        th {
+          padding: 10px;
+        }
+      }
+    }
+    tbody {
+      border-bottom: 1px solid #ddd;
+      td {
+        padding: 20px;
+        border-top: 1px solid #ddd;
+        text-align: center;
+
+        &:nth-child(1) {
+          width: 40%;
+          text-align: left;
+        }
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5) {
+          width: 15%;
+        }
+      }
+      .item-details {
+        display: flex;
+        align-items: center;
+        .item-image {
+          margin-right: 10px;
+          img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+          }
+        }
+        .item-name {
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      background-color: #ddd;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 16px;
+      margin: 0 5px;
+      &:hover {
+        background-color: #9b9a9a;
+      }
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+    span {
+      font-size: 16px;
+      margin: 0 10px;
+    }
+  }
+  .total {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    button {
+      background-color: #304161;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 18px;
+      margin: 0 5px;
+      margin-top: 30px;
+
+      &:hover {
+        background-color: #49618d;
+      }
+    }
+  }
+}
+
+.checkout-container {
+  padding: 30px;
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      section {
+        margin-bottom: 20px;
+        h3 {
+          margin-bottom: 10px;
+        }
+        label {
+          display: flex;
+          margin-bottom: 10px;
+          input[type="text"],
+          input[type="email"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-left: 10px;
+          }
+          input[type="radio"] {
+            margin-right: 20px;
+          }
+        }
+      }
+      button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #304161;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 8px;
+        width: 20rem;
+
+        &:hover {
+          background-color: #49618d;
+        }
+      }
+    }
+  }
+}
+
+.orderSummaryContainer {
+  padding: 30px;
+  .order {
+    max-width: 600px;
+    margin: 0 auto;
+    border-color: #111;
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      font-size: 24px;
+      color: #333;
+    }
+    section {
+      margin-bottom: 30px;
+      h3 {
+        margin-bottom: 15px;
+        font-size: 20px;
+        color: #333;
+      }
+      p {
+        margin: 5px 0;
+        font-size: 16px;
+        color: #333;
+      }
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      thead {
+        tr {
+          background-color: #f5f5f5;
+          border-bottom: 2px solid #ddd;
+          th {
+            padding: 10px;
+            font-size: 16px;
+            color: #666;
+            text-align: left;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid #eee;
+      }
+      td {
+        padding: 10px;
+        font-size: 16px;
+        color: #333;
+        .item-details {
+          display: flex;
+          align-items: center;
+          .item-name {
+            // margin-left: 10px;
+            p {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  h4 {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #304161;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: auto;
+    &:hover {
+      background-color: #49618d;
+    }
+  }
+}
+
+.memberPage {
+  background-color: #f9f9f9;
+  .memberOrder {
+    min-height: 100vh;
+    max-width: 600px;
+    padding: 20px;
+
+    margin: 0 auto;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .order {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      p {
+        margin: 5px 0;
+        font-size: 1rem;
+        color: #333;
+
+        &.order-id {
+          font-weight: bold;
+          color: #555;
+        }
+
+        &.order-time,
+        &.order-total {
+          font-size: 0.9rem;
+          color: #666;
+        }
+      }
+
+      section {
+        margin-top: 20px;
+
+        h3 {
+          margin-bottom: 10px;
+          font-size: 1.2rem;
+          color: #444;
+        }
+
+        p {
+          font-size: 1rem;
+          color: #555;
+        }
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+
+        thead {
+          background-color: #f2f2f2;
+
+          th {
+            padding: 10px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            text-align: left;
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              padding: 10px;
+              border: 1px solid #ddd;
+              font-size: 1rem;
+
+              .item-details {
+                display: flex;
+                align-items: center;
+
+                .item-name {
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 隱藏 checkbox */
+nav input {
+  display: none;
+}
+//當input被選中(checked)的話
+//該input層級內的ul會被設置max-height: 500px
+nav input:checked ~ ul {
+  max-height: 500px;
+}
+
+//選單
+nav label {
+  float: right;
+  padding-right: 50px;
+  line-height: 60px;
+  img {
+    width: 40px;
+    vertical-align: bottom;
+  }
+}
+
+//RWD
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    display: flex;
+    .logo img {
+      margin-left: 0;
+      width: 90px;
+    }
+    .icons {
+      padding: 10px;
+      justify-content: flex-end;
+      transition: opacity 0.2s ease;
+      img {
+        width: 30px;
+      }
+    }
+    nav {
+      width: 100%;
+      justify-content: space-between;
+    }
+    nav ul {
+      flex-direction: column;
+      max-height: 0;
+      overflow: hidden; //隱藏ul元素
+      transition: max-height 0.3s ease;
+
+      li {
+        padding: 0px;
+        white-space: nowrap;
+        &:not(:last-child)::after {
+          display: none;
+        }
+        &:not(:last-child) {
+          margin-right: 0;
+        }
+      }
+    }
+    nav label.burger-icon {
+      align-self: flex-end;
+      margin-right: 10px;
+    }
+  }
+  // switch被選中的時候，隱藏icons元素
+  #switch:checked ~ .icons {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    .product-card {
+      padding: 5px 0px;
+      h3 {
+        font-size: medium;
+        margin-bottom: 0px;
+      }
+      .productImg img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+  .product-detail {
+    justify-content: center;
+    margin: 20px;
+    h1 {
+      font-size: larger;
+    }
+  }
+  .login-container {
+    max-width: 300px;
+  }
+  .cart-container {
+    padding: 20px;
+    p {
+      text-align: center;
+      margin-top: 20px;
+    }
+    h2 {
+      margin-top: 10px;
+    }
+    table {
+      thead {
+        th {
+          font-size: small;
+        }
+      }
+      tbody {
+        td {
+          padding: 10px;
+          font-size: small;
+        }
+        .item-details {
+          p {
+            font-size: small;
+          }
+          .item-image {
+            img {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+    .quantity-controls {
+      button {
+        padding: 3px 8px;
+        font-size: 14px;
+        margin: 0 3px;
+      }
+      span {
+        font-size: 14px;
+        margin: 0 3px;
+      }
+    }
+    .total {
+      margin-top: 10px;
+      font-size: 1em;
+      button {
+        padding: 8px;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+    }
+  }
+  .checkout-container,
+  .orderSummaryContainer {
+    padding: 20px;
+  }
+}
+
+//大於768時隱藏nav的menu圖案
+@media screen and (min-width: 768px) {
+  nav label {
+    display: none;
+  }
+}
